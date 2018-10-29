@@ -8,4 +8,6 @@ import javax.inject.Singleton
 class MainModule (val app: OpenWeatherApplication) {
 
     @Provides @Singleton fun provideApp() = app
+
+    @Provides @Singleton fun provideContext() = app.applicationContext
 }
