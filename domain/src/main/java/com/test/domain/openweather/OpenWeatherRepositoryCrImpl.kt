@@ -5,7 +5,7 @@ import com.test.domain.R
 import com.test.domain.openweather.networkmodel.Response
 import retrofit2.Call
 
-class OpenWeatherServiceImpl(val context: Context, val openWeatherAPI: OpenWeatherAPI) : OpenWeatherService  {
+class OpenWeatherRepositoryCrImpl(val context: Context, val openWeatherAPI: OpenWeatherAPI) : OpenWeatherRepositoryCr  {
 
 
 //    override fun getWeatherForecast(city: String) {
