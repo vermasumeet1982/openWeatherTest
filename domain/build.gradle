@@ -24,6 +24,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -35,6 +40,14 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
+    //Architecture Components - Room
+    implementation "android.arch.persistence.room:runtime:$architecture_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$architecture_version"
+    kapt "android.arch.persistence.room:compiler:$architecture_version"
+    //RxJava support for Room
+    implementation "android.arch.persistence.room:rxjava2:$architecture_version"
+
 
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
