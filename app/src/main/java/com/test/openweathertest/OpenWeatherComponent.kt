@@ -6,7 +6,7 @@ import dagger.Component
 import javax.inject.Singleton
 
 @Singleton
-@Component(modules = arrayOf(MainModule::class, OpenWeatherModule::class, ActivityModule::class))
+@Component(modules = arrayOf(MainModule::class, OpenWeatherModule::class, ActivityModule::class, OpenWeatherAppModule::class))
 interface OpenWeatherComponent {
 
     @Component.Builder

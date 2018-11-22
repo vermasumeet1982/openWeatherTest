@@ -1,12 +1,41 @@
 package com.test.openweathertest
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import com.test.domain.openweather.networkmodel.Response
+import dagger.android.AndroidInjection
+import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        val TAG = MainActivity::class.java.simpleName
+    }
+    @Inject
+    lateinit var openWeatherViewModelFactory:OpenWeatherViewModelFactory
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidInjection.inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val openWeatherViewModel = ViewModelProviders.of(this, openWeatherViewModelFactory).get(OpenWeatherViewModel::class.java)
+
+        openWeatherViewModel.result.observe(this, Observer<Response> {response -> handleSuccess(response)})
+        openWeatherViewModel.error.observe(this, Observer<Throwable> {error -> handleError(error)})
+
+        openWeatherViewModel.getWeatherForTheDay("Orpington")
+
+    }
+
+    fun handleSuccess(response: Response?) {
+        Log.d(TAG, response.toString())
+
+    }
+
+    fun handleError(error: Throwable?) {
+        Log.d(TAG, error?.message)
     }
 }

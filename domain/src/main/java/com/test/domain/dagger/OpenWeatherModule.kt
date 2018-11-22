@@ -10,18 +10,19 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
 class OpenWeatherModule {
 
 
-    @Provides @Singleton @Named(NAMED_COROUTINE) fun provideOpenWeatherAPI() : OpenWeatherAPI {
+    @Provides
+    @Singleton
+    fun provideOpenWeatherAPI(): OpenWeatherAPI {
         val baseUrl = "https://api.openweathermap.org"
         val okhttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
         okhttpClientBuilder.addInterceptor(HttpLoggingInterceptor())
-        val retrofit : Retrofit = Retrofit.Builder().client(okhttpClientBuilder.build())
+        val retrofit: Retrofit = Retrofit.Builder().client(okhttpClientBuilder.build())
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
                 .build()
@@ -29,11 +30,15 @@ class OpenWeatherModule {
 
     }
 
-     @Provides @Singleton @Named(NAMED_RX) fun provideOpenWeatherAPIRx() : OpenWeatherAPIRx {
+    @Provides
+    @Singleton
+    fun provideOpenWeatherAPIRx(): OpenWeatherAPIRx {
         val baseUrl = "https://api.openweathermap.org"
         val okhttpClientBuilder: OkHttpClient.Builder = OkHttpClient.Builder()
-        okhttpClientBuilder.addInterceptor(HttpLoggingInterceptor())
-        val retrofit : Retrofit = Retrofit.Builder().client(okhttpClientBuilder.build())
+        val httpLoggingInterceptor = HttpLoggingInterceptor()
+        httpLoggingInterceptor.level = HttpLoggingInterceptor.Level.BODY
+        okhttpClientBuilder.addInterceptor(httpLoggingInterceptor)
+        val retrofit: Retrofit = Retrofit.Builder().client(okhttpClientBuilder.build())
                 .baseUrl(baseUrl)
                 .addConverterFactory(GsonConverterFactory.create(GsonBuilder().serializeNulls().create()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
@@ -42,18 +47,18 @@ class OpenWeatherModule {
 
     }
 
-    @Provides @Singleton @Named(NAMED_COROUTINE) fun provideOpenWeatherRepositoryCR(context: Context ,@Named(NAMED_COROUTINE) openWeatherAPI: OpenWeatherAPI) : OpenWeatherRepositoryCr {
+    @Provides
+    @Singleton
+    fun provideOpenWeatherRepositoryCR(context: Context, openWeatherAPI: OpenWeatherAPI): OpenWeatherRepositoryCr {
 
         return OpenWeatherRepositoryCrImpl(context, openWeatherAPI)
     }
 
-    @Provides @Singleton @Named(NAMED_RX) fun provideOpenWeatherRepositoryRx(context: Context ,@Named(NAMED_RX) openWeatherAPI: OpenWeatherAPIRx) : OpenWeatherRepositoryRx {
+    @Provides
+    @Singleton
+    fun provideOpenWeatherRepositoryRx(context: Context, openWeatherAPI: OpenWeatherAPIRx): OpenWeatherRepositoryRx {
 
         return OpenWeatherRepositoryRxImpl(context, openWeatherAPI)
     }
 
-    companion object {
-        const val NAMED_RX = "NAMED_RX"
-        const val NAMED_COROUTINE = "NAMED_COROUTINE"
-    }
 }
