@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        tablayout.setupWithViewPager(viewpager)
         setupViewPager(viewpager)
         val openWeatherViewModel = ViewModelProviders.of(this, openWeatherViewModelFactory).get(OpenWeatherViewModel::class.java)
 
@@ -36,9 +37,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupViewPager(viewpager: ViewPager?) {
         val weatherViewPagerAdapter = WeatherViewPagerAdapter(supportFragmentManager)
+        weatherViewPagerAdapter.addFragment(OneDayForecastFragment())
+        weatherViewPagerAdapter.addFragment(FiveDayForecastFragment())
         viewpager?.adapter = weatherViewPagerAdapter
-
-
     }
 
     fun handleSuccess(response: Response?) {
