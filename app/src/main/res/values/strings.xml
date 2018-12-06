@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weather Forecast</string>
+    <string name="not_known">Not known</string>
+    <string name="city_forecast">%1$s Forecast</string>
 </resources>
