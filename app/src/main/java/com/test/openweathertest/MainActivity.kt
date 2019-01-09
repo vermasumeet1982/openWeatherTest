@@ -3,6 +3,8 @@ package com.test.openweathertest
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
+import com.test.openweathertest.fivedayforecast.FiveDayForecastFragment
+import com.test.openweathertest.onedayforecast.OneDayForecastFragment
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 

@@ -1,5 +1,7 @@
-package com.test.openweathertest
+package com.test.openweathertest.dagger
 
+import com.test.openweathertest.fivedayforecast.FiveDayForecastFragment
+import com.test.openweathertest.onedayforecast.OneDayForecastFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

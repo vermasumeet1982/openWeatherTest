@@ -1,4 +1,4 @@
-package com.test.openweathertest
+package com.test.openweathertest.onedayforecast
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -9,13 +9,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.test.domain.openweather.networkmodel.Response
+import com.test.openweathertest.ForecastFragment
+import com.test.openweathertest.OpenWeatherViewModel
+import com.test.openweathertest.OpenWeatherViewModelFactory
+import com.test.openweathertest.R
 import kotlinx.android.synthetic.main.fragment_one_day_forecast.*
 import javax.inject.Inject
 
 class OneDayForecastFragment : ForecastFragment() {
 
     @Inject
-    lateinit var openWeatherViewModelFactory:OpenWeatherViewModelFactory
+    lateinit var openWeatherViewModelFactory: OpenWeatherViewModelFactory
 
     companion object {
         val TAG = OneDayForecastFragment::class.java.simpleName

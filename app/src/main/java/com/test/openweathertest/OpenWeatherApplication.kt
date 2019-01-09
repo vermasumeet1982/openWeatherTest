@@ -3,6 +3,8 @@ package com.test.openweathertest
 import android.app.Activity
 import android.app.Application
 import android.support.v4.app.Fragment
+import com.test.openweathertest.dagger.DaggerOpenWeatherComponent
+import com.test.openweathertest.dagger.MainModule
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector

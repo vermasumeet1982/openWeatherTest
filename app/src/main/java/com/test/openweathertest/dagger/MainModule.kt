@@ -1,5 +1,6 @@
-package com.test.openweathertest
+package com.test.openweathertest.dagger
 
+import com.test.openweathertest.OpenWeatherApplication
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton

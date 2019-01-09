@@ -1,5 +1,6 @@
-package com.test.openweathertest
+package com.test.openweathertest.dagger
 
+import com.test.openweathertest.MainActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
