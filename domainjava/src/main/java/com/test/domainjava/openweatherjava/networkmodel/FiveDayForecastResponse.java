@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Response{
+public class FiveDayForecastResponse{
 
 	@SerializedName("city")
 	private City city;
@@ -64,7 +64,7 @@ public class Response{
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"FiveDayForecastResponse{" + 
 			"city = '" + city + '\'' + 
 			",cnt = '" + cnt + '\'' + 
 			",cod = '" + cod + '\'' + 

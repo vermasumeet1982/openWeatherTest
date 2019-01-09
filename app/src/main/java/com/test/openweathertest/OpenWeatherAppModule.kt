@@ -1,6 +1,7 @@
 package com.test.openweathertest
 
 import com.test.domain.openweather.OpenWeatherRepositoryRx
+import com.test.domainjava.openweatherjava.OpenWeatherJavaRepositoryRx
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -9,8 +10,8 @@ import javax.inject.Singleton
 class OpenWeatherAppModule {
 
 
-    @Provides @Singleton fun provideOpenWeatherViewModelFactory(openWeatherRepositoryRx: OpenWeatherRepositoryRx) : OpenWeatherViewModelFactory {
-        return OpenWeatherViewModelFactory(openWeatherRepositoryRx)
+    @Provides @Singleton fun provideOpenWeatherViewModelFactory(openWeatherRepositoryRx: OpenWeatherRepositoryRx, openWeatherJavaRepositoryRx: OpenWeatherJavaRepositoryRx) : OpenWeatherViewModelFactory {
+        return OpenWeatherViewModelFactory(openWeatherRepositoryRx, openWeatherJavaRepositoryRx)
     }
 
 

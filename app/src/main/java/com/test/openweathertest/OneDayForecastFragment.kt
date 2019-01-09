@@ -17,6 +17,10 @@ class OneDayForecastFragment : ForecastFragment() {
     @Inject
     lateinit var openWeatherViewModelFactory:OpenWeatherViewModelFactory
 
+    companion object {
+        val TAG = OneDayForecastFragment::class.java.simpleName
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_one_day_forecast, container, false)
     }
@@ -36,13 +40,13 @@ class OneDayForecastFragment : ForecastFragment() {
     }
 
     fun handleSuccess(response: Response?) {
-        Log.d(MainActivity.TAG, response.toString())
+        Log.d(TAG, response.toString())
         city.text = getString(R.string.city_forecast, "Orpington")
         oneDayWeather.text = response?.weather?.get(0)?.description
 
     }
 
     fun handleError(error: Throwable?) {
-        Log.d(MainActivity.TAG, error?.message)
+        Log.e(TAG, error?.message)
     }
 }

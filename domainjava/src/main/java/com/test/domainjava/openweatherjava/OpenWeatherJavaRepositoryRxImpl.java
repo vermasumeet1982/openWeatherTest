@@ -2,7 +2,8 @@ package com.test.domainjava.openweatherjava;
 
 import android.content.Context;
 import com.test.domainjava.R;
-import com.test.domainjava.openweatherjava.networkmodel.Response;
+import com.test.domainjava.openweatherjava.networkmodel.FiveDayForecastResponse;
+
 import io.reactivex.Observable;
 
 public class OpenWeatherJavaRepositoryRxImpl implements OpenWeatherJavaRepositoryRx  {
@@ -17,8 +18,8 @@ public class OpenWeatherJavaRepositoryRxImpl implements OpenWeatherJavaRepositor
 
 
     @Override
-    public Observable<Response> getWeatherByDay(String city) {
+    public Observable<FiveDayForecastResponse> getWeatherForecast(String city) {
         String appId = context.getResources().getString(R.string.app_id);
-        return openWeatherAPIJavaRx.getWeatherByDay(city, appId);
+        return openWeatherAPIJavaRx.getWeatherForecast(city, appId);
     }
 }
