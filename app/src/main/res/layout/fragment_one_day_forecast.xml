@@ -14,6 +14,15 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:src="@drawable/ic_kotlin"/>
+
     <TextView
         android:id="@+id/oneDayWeather"
         android:layout_width="wrap_content"
