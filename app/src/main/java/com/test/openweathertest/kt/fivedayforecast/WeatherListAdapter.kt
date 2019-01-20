@@ -1,4 +1,4 @@
-package com.test.openweathertest.fivedayforecast
+package com.test.openweathertest.kt.fivedayforecast
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

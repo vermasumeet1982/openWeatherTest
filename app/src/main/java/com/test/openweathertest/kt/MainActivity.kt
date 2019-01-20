@@ -1,10 +1,11 @@
-package com.test.openweathertest
+package com.test.openweathertest.kt
 
 import android.os.Bundle
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AppCompatActivity
-import com.test.openweathertest.fivedayforecast.FiveDayForecastFragment
-import com.test.openweathertest.onedayforecast.OneDayForecastFragment
+import com.test.openweathertest.R
+import com.test.openweathertest.kt.fivedayforecast.FiveDayForecastFragment
+import com.test.openweathertest.kt.onedayforecast.OneDayForecastFragment
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 

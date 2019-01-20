@@ -1,4 +1,4 @@
-package com.test.openweathertest.fivedayforecast
+package com.test.openweathertest.kt.fivedayforecast
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -11,9 +11,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.test.domainjava.openweatherjava.networkmodel.FiveDayForecastResponse
 import com.test.domainjava.openweatherjava.networkmodel.ListItem
-import com.test.openweathertest.ForecastFragment
-import com.test.openweathertest.OpenWeatherViewModel
-import com.test.openweathertest.OpenWeatherViewModelFactory
+import com.test.openweathertest.kt.ForecastFragment
+import com.test.openweathertest.kt.OpenWeatherViewModel
+import com.test.openweathertest.kt.OpenWeatherViewModelFactory
 import com.test.openweathertest.R
 import kotlinx.android.synthetic.main.fragment_five_day_forecast.*
 import javax.inject.Inject

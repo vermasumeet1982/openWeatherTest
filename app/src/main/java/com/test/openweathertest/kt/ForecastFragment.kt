@@ -1,4 +1,4 @@
-package com.test.openweathertest
+package com.test.openweathertest.kt
 
 import android.content.Context
 import android.support.v4.app.Fragment

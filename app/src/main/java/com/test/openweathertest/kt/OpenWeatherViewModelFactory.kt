@@ -1,4 +1,4 @@
-package com.test.openweathertest
+package com.test.openweathertest.kt
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

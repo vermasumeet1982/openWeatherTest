@@ -1,6 +1,7 @@
 package com.test.openweathertest.dagger
 
-import com.test.openweathertest.MainActivity
+import com.test.openweathertest.kt.MainActivity
+import com.test.openweathertest.jv.WeatherActivityJava
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -8,4 +9,7 @@ import dagger.android.ContributesAndroidInjector
 abstract class ActivityModule {
     @ContributesAndroidInjector
     abstract fun bindMainActivity() : MainActivity
+
+    @ContributesAndroidInjector
+    abstract fun bindWeatherActivityJava() : WeatherActivityJava
 }
