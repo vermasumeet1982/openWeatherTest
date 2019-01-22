@@ -45,7 +45,7 @@ class OneDayForecastFragment : ForecastFragment() {
 
     fun handleSuccess(response: Response?) {
         Log.d(TAG, response.toString())
-        city.text = getString(R.string.city_forecast, "Orpington")
+        city.text = getString(R.string.city_weather, "Orpington")
         oneDayWeather.text = response?.weather?.get(0)?.description
 
     }

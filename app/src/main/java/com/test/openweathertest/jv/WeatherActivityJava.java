@@ -17,9 +17,10 @@ public class WeatherActivityJava extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AndroidInjection.inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_java);
         final TabLayout tabLayout = findViewById(R.id.tablayout);
         final ViewPager viewPager = findViewById(R.id.viewpager);
+        tabLayout.setupWithViewPager(viewPager);
         setupViewPager(viewPager);
     }
 

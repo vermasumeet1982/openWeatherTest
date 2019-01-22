@@ -3,19 +3,21 @@ package com.test.openweathertest.jv.fivedayforecast;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.test.domainjava.openweatherjava.networkmodel.FiveDayForecastResponse;
 import com.test.openweathertest.R;
 import com.test.openweathertest.jv.ForecastFragmentJava;
-import com.test.openweathertest.kt.OpenWeatherViewModel;
-import com.test.openweathertest.kt.OpenWeatherViewModelFactory;
+import com.test.openweathertest.jv.OpenWeatherViewModelFactoryJava;
+import com.test.openweathertest.jv.OpenWeatherViewModelJava;
 
 import javax.inject.Inject;
 
@@ -24,7 +26,7 @@ public class FiveDayForecastFragmentJava extends ForecastFragmentJava {
     private static final String TAG = FiveDayForecastFragmentJava.class.getSimpleName();
 
     @Inject
-    OpenWeatherViewModelFactory openWeatherViewModelFactory;
+    OpenWeatherViewModelFactoryJava openWeatherViewModelFactoryJava;
 
     WeatherListAdapterJava weatherListAdapter = new WeatherListAdapterJava();
 
@@ -32,10 +34,12 @@ public class FiveDayForecastFragmentJava extends ForecastFragmentJava {
 
     private RecyclerView weather_forecast_list;
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         final View  view = inflater.inflate(R.layout.fragment_five_day_forecast, container, false);
         city = view.findViewById(R.id.city);
         weather_forecast_list = view.findViewById(R.id.weather_forecast_list);
+        final ImageView icon = view.findViewById(R.id.icon);
+        icon.setImageResource(R.drawable.ic_kotlin2);
         return view;
     }
 
@@ -47,7 +51,7 @@ public class FiveDayForecastFragmentJava extends ForecastFragmentJava {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        final OpenWeatherViewModel openWeatherViewModel = ViewModelProviders.of(this, openWeatherViewModelFactory).get(OpenWeatherViewModel.class);
+        final OpenWeatherViewModelJava openWeatherViewModel = ViewModelProviders.of(this, openWeatherViewModelFactoryJava).get(OpenWeatherViewModelJava.class);
         openWeatherViewModel.getForecast().observe(this, this::handleSuccess);
         openWeatherViewModel.getError().observe(this, this::handleError);
 

@@ -9,7 +9,7 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(modules = arrayOf(MainModule::class, OpenWeatherModule::class, ActivityModule::class,
-        OpenWeatherAppModule::class, FragmentModule::class, OpenWeatherJavaModule::class))
+        OpenWeatherAppModule::class, FragmentModule::class, OpenWeatherJavaModule::class, OpenWeatherAppModuleJava::class))
 interface OpenWeatherComponent {
 
     @Component.Builder

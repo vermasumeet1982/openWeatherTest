@@ -2,5 +2,7 @@
     <string name="app_name">Weather Forecast</string>
     <string name="not_known">Not known</string>
     <string name="city_forecast">%1$s Forecast</string>
+    <string name="city_weather">%1$s Weather</string>
     <string name="formatted_weather_item">%1$s : %2$s</string>
+    <string name="go_to_java">Go to Java</string>
 </resources>
