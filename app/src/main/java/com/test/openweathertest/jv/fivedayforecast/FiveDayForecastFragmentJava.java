@@ -55,7 +55,7 @@ public class FiveDayForecastFragmentJava extends ForecastFragmentJava {
         openWeatherViewModel.getForecast().observe(this, this::handleSuccess);
         openWeatherViewModel.getError().observe(this, this::handleError);
 
-        openWeatherViewModel.getWeatherForecast("Orpington");
+        openWeatherViewModel.getWeatherForecast(CITY);
 
     }
 
@@ -71,7 +71,7 @@ public class FiveDayForecastFragmentJava extends ForecastFragmentJava {
 
     public void handleSuccess(FiveDayForecastResponse response) {
         Log.d(TAG, response.toString());
-        city.setText(getString(R.string.city_forecast, "Orpington"));
+        city.setText(getString(R.string.city_forecast, CITY));
             weatherListAdapter.setData(response.getList());
     }
 

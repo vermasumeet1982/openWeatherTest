@@ -36,7 +36,7 @@ class OneDayForecastFragment : ForecastFragment() {
         openWeatherViewModel.result.observe(this, Observer<Response> { response -> handleSuccess(response)})
         openWeatherViewModel.error.observe(this, Observer<Throwable> {error -> handleError(error)})
 
-        openWeatherViewModel.getWeatherForTheDay("Orpington")
+        openWeatherViewModel.getWeatherForTheDay(CITY)
     }
 
     override fun getTitle(): String {
@@ -45,7 +45,7 @@ class OneDayForecastFragment : ForecastFragment() {
 
     fun handleSuccess(response: Response?) {
         Log.d(TAG, response.toString())
-        city.text = getString(R.string.city_weather, "Orpington")
+        city.text = getString(R.string.city_weather, CITY)
         oneDayWeather.text = response?.weather?.get(0)?.description
 
     }

@@ -6,6 +6,8 @@ import dagger.android.support.AndroidSupportInjection;
 
 public abstract class ForecastFragmentJava extends Fragment {
 
+    public static final String CITY = "Orpington";
+
     public void onAttach(Context context) {
         AndroidSupportInjection.inject(this);
         super.onAttach(context);

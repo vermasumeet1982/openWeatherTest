@@ -11,10 +11,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.test.domainjava.openweatherjava.networkmodel.FiveDayForecastResponse
 import com.test.domainjava.openweatherjava.networkmodel.ListItem
+import com.test.openweathertest.R
 import com.test.openweathertest.kt.ForecastFragment
 import com.test.openweathertest.kt.OpenWeatherViewModel
 import com.test.openweathertest.kt.OpenWeatherViewModelFactory
-import com.test.openweathertest.R
 import kotlinx.android.synthetic.main.fragment_five_day_forecast.*
 import javax.inject.Inject
 
@@ -45,7 +45,7 @@ class FiveDayForecastFragment : ForecastFragment() {
         openWeatherViewModel.forecast.observe(this, Observer<FiveDayForecastResponse> { response -> handleSuccess(response)})
         openWeatherViewModel.error.observe(this, Observer<Throwable> {error -> handleError(error)})
 
-        openWeatherViewModel.getWeatherForecast("Orpington")
+        openWeatherViewModel.getWeatherForecast(CITY)
 
     }
 
@@ -58,7 +58,7 @@ class FiveDayForecastFragment : ForecastFragment() {
 
     fun handleSuccess(response: FiveDayForecastResponse?) {
         Log.d(TAG, response.toString())
-        city.text = getString(R.string.city_forecast, "Orpington")
+        city.text = getString(R.string.city_forecast, CITY)
         weatherListAdapter.setData(response?.list as List<ListItem>)
 //        oneDayWeather.text = response?.weather?.get(0)?.description
 

@@ -6,6 +6,10 @@ import dagger.android.support.AndroidSupportInjection
 
 abstract class ForecastFragment : Fragment() {
 
+    companion object {
+        val CITY = "Orpington"
+    }
+
     abstract fun getTitle(): String
 
     override fun onAttach(context: Context?) {
